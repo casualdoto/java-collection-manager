@@ -96,7 +96,7 @@ public class ConsoleApplication {
     }
 
     private void processUsers() {
-        List<String> emails = service.findEmails(readLine("Подстрока имени (пустая — все): "));
+        List<String> emails = service.findEmails(readLine("Подстрока имени (пустая - все): "));
         if (emails.isEmpty()) {
             output.println("Совпадений не найдено.");
         } else {
@@ -106,9 +106,9 @@ public class ConsoleApplication {
     }
 
     private void sortUsers() {
-        int algorithmChoice = readChoice("Алгоритм (1 — вставки, 2 — слияние): ", 1, 2);
+        int algorithmChoice = readChoice("Алгоритм (1 - вставки, 2 - слияние): ", 1, 2);
         SortAlgorithm<User> algorithm = algorithmChoice == 1 ? new InsertionSort<>() : new MergeSort<>();
-        boolean descending = readChoice("Направление (1 — возрастание, 2 — убывание): ", 1, 2) == 2;
+        boolean descending = readChoice("Направление (1 - возрастание, 2 - убывание): ", 1, 2) == 2;
         printUsers(service.sorted(algorithm, descending));
     }
 
